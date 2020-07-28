@@ -11,3 +11,8 @@ before_install:
   - gcloud config set project multi-k8s-284620
   - gcloud config set compute/zone us-east4-a
   - gcloud containter clusters get-credentials multi-cluster
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker build -t slickrighty/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true slickrighty/docker-react npm run test
