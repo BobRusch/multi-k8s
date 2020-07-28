@@ -7,7 +7,7 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: k8s-multi.com
+  commonName: wizardcompute.com
   dnsNames:
     - wizardcompute.com
     - www.wizardcompute.com
