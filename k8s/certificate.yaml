@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: k8s-multi-com-tls
+spec:
+  secretName: wizardcompute-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: k8s-multi.com
+  dnsNames:
+    - wizardcompute.com
+    - www.wizardcompute.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - wizardcompute.com
+          - www.wizardcompute.com
