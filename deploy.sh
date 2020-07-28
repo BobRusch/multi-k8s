@@ -13,5 +13,7 @@ docker push slickrighty/multi-worker:$SHA
 kubectl apply -f k8s
 
 kubectl set image deployments/server-deployment server=slickrighty/multi-server:$SHA
-kubectl set image deployments/client-deployment server=slickrighty/multi-client:$SHA
-kubectl set image deployments/worker-deployment server=slickrighty/multi-worker:$SHA
+kubectl set image deployments/client-deployment client=slickrighty/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=slickrighty/multi-worker:$SHA
+
+exit 0
